@@ -1,47 +1,73 @@
-<div class="container-fluid footer">
-  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 mt-5 border-top">
-    <div class="col mb-3">
-      <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-      </a>
-      <p class="">{{ footerData.footer.text }}</p>
+<footer class="footer-section">
+  <div class="container-fluid px-5">
+    <div class="row g-5">
+
+      <!-- ─── Brand Column ───────────────────────────── -->
+      <div class="col-12 col-md-4">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo" aria-label="Insightful Health AI home">
+            <img src="images/Logo-IH-Transparent-Header.png"
+                 alt="Insightful Health AI logo"
+                 class="footer-logo-img" />
+          </a>
+          <p class="footer-tagline">{{ footerData.footer.text }}</p>
+        </div>
+      </div>
+
+      <!-- ─── Quick Links ────────────────────────────── -->
+      <div class="col-6 col-md-2">
+        <h2 class="footer-heading">Company</h2>
+        <div class="footer-accent-bar" aria-hidden="true"></div>
+        <ul class="footer-nav" aria-label="Company links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- ─── Resources ─────────────────────────────── -->
+      <div class="col-6 col-md-2">
+        <h2 class="footer-heading">Resources</h2>
+        <div class="footer-accent-bar" aria-hidden="true"></div>
+        <ul class="footer-nav" aria-label="Resource links">
+          <li><a [href]="footerData.menu[0].url">{{ footerData.menu[0].label }}</a></li>
+          <li><a [href]="footerData.menu[1].url">{{ footerData.menu[1].label }}</a></li>
+          <li><a [href]="footerData.menu[2].url">{{ footerData.menu[2].label }}</a></li>
+          <li><a [href]="footerData.menu[3].url">{{ footerData.menu[3].label }}</a></li>
+          <li><a [href]="footerData.menu[4].url">{{ footerData.menu[4].label }}</a></li>
+        </ul>
+      </div>
+
+      <!-- ─── Contact ───────────────────────────────── -->
+      <div class="col-12 col-md-4">
+        <h2 class="footer-heading">Contact</h2>
+        <div class="footer-accent-bar" aria-hidden="true"></div>
+        <ul class="footer-contact-list" aria-label="Contact information">
+          <li>
+            <span class="footer-contact-icon" aria-hidden="true">&#9742;</span>
+            <a [href]="'tel:' + footerData.footer.phone">{{ footerData.footer.phone }}</a>
+          </li>
+          <li>
+            <span class="footer-contact-icon" aria-hidden="true">&#9993;</span>
+            <a [href]="'mailto:' + footerData.footer.email">{{ footerData.footer.email }}</a>
+          </li>
+        </ul>
+      </div>
+
     </div>
 
-    <div class="col mb-3">
-
+    <!-- ─── Bottom Bar ────────────────────────────── -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; 2026 Insightful Health AI. All rights reserved.
+      </p>
+      <p class="footer-copyright">
+        <a href="#" class="footer-copyright" style="color: rgba(200,220,255,.45); text-decoration:none;">Privacy Policy</a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <a href="#" class="footer-copyright" style="color: rgba(200,220,255,.45); text-decoration:none;">Terms of Service</a>
+      </p>
     </div>
-
-    <div class="col mb-3">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
-      </ul>
-    </div>
-
-    <div class="col mb-3">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">About</a></li>
-      </ul>
-    </div>
-
-    <div class="col mb-3">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">About</a></li>
-      </ul>
-    </div>
-  </footer>
-</div>
+  </div>
+</footer>
