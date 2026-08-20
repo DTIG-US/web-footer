@@ -3,6 +3,10 @@ import * as siteData from '../../data.json';
 
 @Component({
   selector: 'app-footer',
+ standalone: true,
+ imports: [CommonModule],
+ standalone: true,
+ imports: [CommonModule],
   imports: [],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
