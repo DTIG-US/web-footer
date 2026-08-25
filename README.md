@@ -1,114 +1,137 @@
-# web-footer
+# web-footer — Page Footer Component
 
-Click [here](/CHANGELOG.md) for the CHANGE LOG
+This submodule contains the `FooterComponent` for the **IH Hand Sanitation** portal. It renders the site footer including navigation links, copyright notice, and social links.
 
-Click [here](/CLIFF_NOTES.md) for the CLIFF NOTES
+- [CHANGELOG](CHANGELOG.md)
+- [CLIFF NOTES](CLIFF_NOTES.md)
 
-## Table of Contents
+---
 
-- [Introduction](#introduction)
+## 📋 Table of Contents
+
+- [Overview](#overview)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Data Structure](#data-structure)
+- [Dependencies](#dependencies)
+- [Accessibility](#accessibility)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Introduction
+---
 
-This repository contains code for an Angular component named `FooterComponent` which appears to be part of a web application's footer section.
+## Overview
+
+The `FooterComponent` renders a multi-column Bootstrap footer fixed to the bottom of the page. It is styled with a solid dark navy background (`#0a0f2c`) to provide a clean structural closing to the page layout.
+
+Files in this submodule:
+
+| File | Purpose |
+| --- | --- |
+| `footer.component.ts` | Component class — loads `data.json` and exposes `footerData` |
+| `footer.component.html` | Template — Bootstrap multi-column footer grid |
+| `footer.component.css` | Component-scoped styles (dark navy background, typography, link styles) |
+| `footer.component.spec.ts` | Unit tests (Karma + Jasmine) |
+
+---
 
 ## Installation
 
-To get started with this project, follow these steps:
-
-1. Clone the repository to your local machine:
+1. Clone this repository:
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/DTIG-US/web-footer.git
+   cd web-footer
    ```
 
-2. Install the necessary dependencies:
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-3. Run the application:
+> [!NOTE]
+> In normal use, this component is consumed as a Git submodule of `ih-hand-sanitation-www`. See the [parent README](https://github.com/DTIG-US/ih-hand-sanitation-www) for the full setup workflow.
 
-   ```bash
-   ng serve
-   ```
-
-4. Visit [http://localhost:4200](http://localhost:4200) in your web browser to view the application.
+---
 
 ## Usage
 
-The `FooterComponent` is intended to be used as a footer section in your Angular application. You can include it in your application's layout to display a common footer across multiple pages.
+Add the selector to your root application template (`app.html`):
 
 ```html
 <app-footer></app-footer>
 ```
 
-## Contributing
+Import the component in your root `App` component (Angular v20+ standalone — no NgModule required):
 
-If you'd like to contribute to this project, please follow these guidelines:
+```typescript
+import { Component } from '@angular/core';
+import { FooterComponent } from './web-footer/footer.component';
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and commit them.
-4. Push your changes to your fork.
-5. Submit a pull request to the main repository.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+@Component({
+  selector: 'app-root',
+  imports: [FooterComponent],
+  templateUrl: './app.html',
+})
+export class App {}
+```
 
 ---
 
-<div class="container-fluid footer">
-  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 mt-5 border-top">
-    <div class="col mb-3">
-      <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-      </a>
-      <p class="">© 2022</p>
-    </div>
+## Data Structure
 
-    <div class="col mb-3">
+The component reads `../../data.json`. The expected structure for the footer section:
 
-    </div>
+```json
+{
+  "footer": {
+    "copyright": "© 2024 Insightful Health. All rights reserved.",
+    "sections": [
+      {
+        "heading": "Company",
+        "links": [
+          { "label": "Home", "url": "/" },
+          { "label": "About", "url": "/about" }
+        ]
+      }
+    ],
+    "social": [
+      { "platform": "LinkedIn", "url": "https://linkedin.com/company/example" }
+    ]
+  }
+}
+```
 
-    <div class="col mb-3">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
-      </ul>
-    </div>
+---
 
-    <div class="col mb-3">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">About</a></li>
-      </ul>
-    </div>
+## Dependencies
 
-    <div class="col mb-3">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">About</a></li>
-      </ul>
-    </div>
-  </footer>
-</div>
-```0
+| Package | Purpose |
+| --- | --- |
+| `bootstrap` | Multi-column grid, utility classes, and footer layout |
+| `@angular/common` | Structural directives (control flow via `@for`, `@if`) |
+
+---
+
+## Accessibility
+
+- Footer landmark uses a semantic `<footer>` element, readable by screen readers without additional ARIA roles.
+- All navigation links must have descriptive labels — avoid bare `#` hrefs in production.
+- Ensure sufficient color contrast between link text and the dark navy background per WCAG AA (minimum 4.5:1 ratio).
+
+---
+
+## Contributing
+
+1. Fork this repository.
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Make your changes and commit: `git commit -m "Description of changes"`
+4. Push to your fork: `git push origin feature/your-feature-name`
+5. Submit a pull request to `DTIG-US/web-footer`.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
