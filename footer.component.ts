@@ -4,7 +4,6 @@ import * as siteData from '../../data.json';
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
