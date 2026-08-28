@@ -26,6 +26,15 @@
   padding: var(--ih-footer-padding);
   position: relative;
   border-top: 1px solid var(--ih-footer-border);
+  color: var(--ih-footer-text, inherit);
+}
+
+.footer-section a {
+  color: var(--ih-footer-link, inherit);
+}
+
+.footer-section a:hover {
+  color: var(--ih-footer-link-hover, inherit);
 }
 
 /* ─── Brand Column ───────────────────────────────────── */
