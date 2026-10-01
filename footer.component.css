@@ -89,7 +89,7 @@
   font-weight: 700;
   color: var(--ih-footer-heading-color);
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-transform: none;
   margin: 0 0 0.25rem 0;
 }
 
